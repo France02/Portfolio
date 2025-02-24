@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio di Francesco Golino, front-end developer specializzato in HTML, CSS, JavaScript e React. Scopri i miei progetti e contattami.">
+    <title>Francesco Golino - Portfolio</title>
+    <link rel="icon" href="/Assets/Img/Black White Minimalist Initials Monogram Jewelry Logo.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Assets/Css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <img src="/Assets/Img/Black White Minimalist Initials Monogram Jewelry Logo.png" alt="Brand logo" class="navbar-brand img-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link rounded px-lg-4" href="#home">Home</a>
+                  <a class="nav-link rounded px-lg-4" href="#about">About Me</a>
+                  <a class="nav-link rounded px-lg-4" href="#works">My Works</a>
+                  <a class="nav-link rounded px-lg-4" href="#contact">Contact Me</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <section id="home" class="main py-5">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3><small>Welcome, I'm</small><br>
+                            Francesco Golino
+                        </h3>
+                        <h6 id="typewriter"></h6>
+                        <input type="button" value="My Work" class="bt1 mt-5" onclick="scrollToSection('works')">
+                        <input type="button" value="About Me" class="bt2 mt-5" onclick="scrollToSection('about')">
+                    </div>
+                    <div class="image col-lg-6">
+                        <img src="/Assets/Img/undraw_programming_65t2.png" alt="Francesco Golino" class="img-fluid rounded" style="width: 100%; height: auto;">
+                    </div>                
+                </div>
+            </div>
+        </section>
+        <section class="about_me" id="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <img src="./Assets/Img/WhatsApp Image 2024-05-02 at 16.30.27.jpeg" alt="About Me" class="img-fluid">
+                    </div>
+                    <div class="col-lg-7">
+                        <h1><i class="fa-regular fa-user"></i> About Me.</h1>
+                        <p class="role">FRONT-END DEVELOPER</p>
+                        <p><i class="fa-solid fa-circle-user"></i> Ciao! Mi chiamo <span class="name">Francesco Golino</span>, sono un appassionato di sviluppo web front-end e sto costruendo la mia carriera per diventare un esperto in questo campo. Con una solida base in HTML, CSS, JavaScript e React, mi impegno ogni giorno per migliorare le mie competenze e trasformare idee creative in esperienze digitali interattive.</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Sono di Caserta, ma sono disponibile anche per opportunità remote o trasferimenti a Roma. Amo collaborare con team motivati per creare progetti innovativi e orientati all'utente.</p>
+                        <p><i class="fas fa-laptop-code"></i> Il mio obiettivo è unire design accattivante e funzionalità avanzata per realizzare siti e applicazioni web che abbiano un impatto positivo. Nel tempo libero, mi piace allenarmi in palestra e migliorare il mio inglese, oltre a esplorare nuove tecnologie per rimanere aggiornato sulle ultime tendenze del settore.</p>
+                        <p><i class="fas fa-envelope"></i> Se vuoi discutere di progetti o collaborazioni, sentiti libero di contattarmi nella sezione "Contatti" o tramite <a href="https://www.linkedin.com/in/francesco-golino/"><i class="fab fa-linkedin"></i> LinkedIn!</a></p>
+                        <div class="skills mt-4">
+                            <h3>My Skills</h3>
+                            <div class="skills-list">
+                                <span class="badge skill-badge">HTML</span>
+                                <span class="badge skill-badge">CSS</span>
+                                <span class="badge skill-badge">JavaScript</span>
+                                <span class="badge skill-badge">React</span>
+                                <span class="badge skill-badge">Git</span>
+                                <span class="badge skill-badge">Responsive Design</span>
+                                <span class="badge skill-badge">Bootstrap</span>
+                                <span class="badge skill-badge">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="my_work" id="works">
+            <div class="container">
+                <h1>My Works</h1>
+                <p>Qui puoi vedere alcune idee, esercizi e progetti su cui sto lavorando per migliorare le mie competenze front-end.</p>
+                <div class="row">
+                   
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="./Assets/Img/Screenshot 2025-02-19 152938.png" alt="Progetto little-lemons" class="img-fluid">
+                            </div>
+                            <div class="project-info">
+                                <h3>Little Lemon - Sito Web con Modulo Prenotazioni in React</h3>
+                                <p>Un sito React per un ristorante con un modulo di prenotazioni, progettato per essere aggiornato con nuove funzionalità.</p>
+                                <a href="https://little-lemons.netlify.app/" target="_blank">Visita Sito</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="./Assets/Img/Screenshot 2025-02-07 180212.png" alt="Progetto Pizzeria" class="img-fluid">
+                            </div>
+                            <div class="project-info">
+                                <h3>Landing Page Responsive</h3>
+                                <p>Una landing page progettata per esercitarmi con il responsive design e Flexbox.</p>
+                                <a href="https://pizzariabelnapoli.netlify.app/" target="_blank">Visita Sito</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="./Assets/Img/pexels-mart-production-7718755.jpg" alt="Progetto futuro" class="img-fluid">
+                            </div>
+                            <div class="project-info">
+                                <h3>App To-Do</h3>
+                                <p>Un'app per la gestione delle attività, realizzata in React. Progetto in fase iniziale.</p>
+                                <a href="https://todolist-fr.netlify.app/" target="_blank">Visita Sito</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="./Assets/Img/Immagine 2025-01-14 172754.png" alt="Progetto futuro" class="img-fluid">
+                            </div>
+                            <div class="project-info">
+                                <h3>Portfolio Unico</h3>
+                                <p>Sto lavorando al mio portfolio personale per renderlo ancora più interattivo e accattivante.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="container">
+                <h1 class="contact_title">CONTACT ME</h1>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="contact-form" action="" class="contact_form">
+                            <div class="input-box">
+                                <div class="input-field field">
+                                    <input type="text" name="user_name" placeholder="Names" id="name" required class="contact_input">
+                                </div>
+                                <div class="input-field field">
+                                    <input type="text" name="user_email" placeholder="Email" id="email" required class="contact_input">
+                                </div>
+                            </div>
+                        
+                            <div class="input-box">
+                                <div class="input-field field">
+                                    <input type="text" name="user_phone" placeholder="Phone" id="phone" required class="contact_input">
+                                </div>
+                                <div class="input-field field">
+                                    <input type="text" name="user_subject" placeholder="Subject" id="subject" required class="contact_input">
+                                </div>
+                            </div>
+                        
+                            <div class="textarea-field field">
+                                <textarea id="message" name="user_massage" cols="30" rows="10" placeholder="Message" required class="contact_message"></textarea>
+                            </div>
+                        
+                            <button class="button_contact" type="submit">Send Message</button> 
+                            <div id="message-response" style="margin-top: 20px;"></div>
+
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="/Assets/Img/Black White Minimalist Initials Monogram Jewelry Logo.png" alt="Brand logo" class="navbar-brand img-fluid">
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#works">My Works</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="https://github.com/France02" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/francesco-golino/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p>&copy; 2025 Francesco Golino. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+    <script src="./Assets/Js/scrollreveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="/Assets/Js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</body>
+</html>
