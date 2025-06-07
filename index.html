@@ -1,240 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio di Francesco Golino, front-end developer specializzato in HTML, CSS, JavaScript e React. Scopri i miei progetti e contattami.">
-    <title>Francesco Golino - Portfolio</title>
-    <link rel="icon" href="/Assets/Img/Black White Minimalist Initials Monogram Jewelry Logo.png" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/Assets/Css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta name="description" content="Portfolio di Francesco Golino, un Full Stack Developer specializzato nella creazione di applicazioni web complete, performanti e scalabili.">
+    <title>Francesco Golino - Full Stack Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/France02/Portfolio-v2/main/assets/img/logo-dark.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./Assets/Css/styles.css">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg custom-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#home">
-                    <img src="/Assets/Img/Black White Minimalist Initials Monogram Jewelry Logo.png" alt="Portfolio di Francesco Golino" class="logo" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <ul class="navbar-nav d-flex align-items-center gap-4">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About Me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#works">My Works</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link contact-btn" href="#contact">Contact Me</a>
-                        </li>
-                    </ul>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#hero" class="navbar__logo">FG.</a>
+            <div class="navbar__menu">
+                <ul class="navbar__list">
+                    <li><a href="#about" class="navbar__link">About</a></li>
+                    <li><a href="#work" class="navbar__link">Work</a></li>
+                    <li><a href="#contact" class="navbar__link">Contatti</a></li>
+                </ul>
+                <div class="navbar__actions">
+                    <a href="/Assets/Img/Francesco-Golino-CV.pdf" download class="btn btn--primary">Download CV</a>
+                     <button id="theme-toggle" class="theme-toggle" aria-label="Cambia tema">
+                        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8a8.009 8.009 0 0 1-8 8z"/>
+                            <path d="M12.5 7h-1v5h1zM12.5 14h-1v1h1z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
+            <button class="navbar__toggle" aria-label="Apri menu">
+                <span class="hamburger"></span>
+            </button>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="main-section">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-6 text-container">
-                        <h1 class="greeting mb-4">
-                            <small>Hi, I'm</small><br>
-                            <span class="name">Francesco Golino</span>
-                        </h1>
-                        <div class="typewriter">
-                            <h2 class="title" style="width: 100%;"></h2>
-                        </div>
-                        <div class="button-container mt-5">
-                            <button class="primary-btn" onclick="scrollToSection('works')">My Work</button>
-                            <button class="secondary-btn" onclick="scrollToSection('about')">About Me</button>
+        <!-- Sezione Hero -->
+        <section id="hero" class="hero container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Francesco Golino
+                    <span class="hero__subtitle">
+                        Full Stack Developer
+                        <span class="cursor"></span>
+                    </span>
+                </h1>
+                <p class="hero__description">
+                    Sviluppo soluzioni web complete, dal front-end al back-end. Specializzato nella creazione di applicazioni robuste, scalabili e intuitive.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary">Lavoriamo insieme</a>
+                    <a href="#work" class="btn btn--secondary">Vedi i miei lavori</a>
+                </div>
+            </div>
+            <div class="hero__socials">
+                <a href="https://github.com/France02" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+                <span class="hero__socials-divider"></span>
+                <a href="https://www.linkedin.com/in/francesco-golino/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- Sezione About -->
+        <section id="about" class="about container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <div class="section-title__line"></div>
+            </div>
+            <div class="about__content">
+                <div class="about__text">
+                    <p>
+                        Ciao, sono Francesco. Come Full Stack Developer, la mia missione è progettare e costruire applicazioni web complete end-to-end. La mia esperienza spazia dalla creazione di interfacce utente interattive con <strong>React e JavaScript</strong>, alla progettazione di robuste architetture back-end con <strong>Java, Spring Boot e database SQL</strong>.
+                    </p>
+                    <p>
+                        Affronto ogni progetto con una mentalità orientata alla soluzione, cercando di bilanciare estetica e funzionalità per creare prodotti performanti e di alta qualità. Sono un sostenitore del codice pulito e della collaborazione in team per raggiungere obiettivi ambiziosi.
+                    </p>
+                    <div class="about__skills">
+                        <h3 class="about__skills-title">Le mie Tecnologie:</h3>
+                        <div class="about__skills-list">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>SQL & MySQL</span>
+                            <span>React</span>
+                            <span>JavaScript (ES6+)</span>
+                            <span>HTML5 & CSS3</span>
+                            <span>Git & GitHub</span>
+                            <span>Figma</span>
+                            <span>Bootstrap</span>
                         </div>
                     </div>
-                    <div class="col-lg-6 image-container d-none d-lg-block">
-                        <img src="/Assets/Img/undraw_programming_65t2.png" alt="Francesco Golino" class="profile-image img-fluid">
+                </div>
+                <div class="about__image-container">
+                    <div class="about__image-wrapper">
+                        <img src="/Assets/Img/WhatsApp Image 2024-05-02 at 16.30.27.jpeg" alt="Ritratto professionale di Francesco Golino" class="about__image" onerror="this.onerror=null;this.src='https://placehold.co/600x600/1A1A1A/FFFFFF?text=Immagine+non+trovata';">
                     </div>
                 </div>
             </div>
         </section>
-        <section class="about_me" id="about">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="profile-image-container">
-                            <img src="./Assets/Img/WhatsApp Image 2024-05-02 at 16.30.27.jpeg" alt="Francesco Golino" class="profile-image">
+
+        <!-- Sezione Work -->
+        <section id="work" class="work container">
+            <div class="section-title">
+                <h2>Progetti Selezionati</h2>
+                <div class="section-title__line"></div>
+            </div>
+            <div class="work__grid">
+                <!-- Progetto 1 -->
+                <div class="project-card">
+                    <div class="project-card__image-container">
+                        <img src="/Assets/Img/Screenshot 2025-02-19 152938.png" alt="Screenshot del progetto Little Lemon" class="project-card__image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/18181B/3f3f46?text=Immagine+non+trovata';">
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Little Lemon Restaurant</h3>
+                        <p class="project-card__description">Sito web responsive per un ristorante, sviluppato in React. Include un sistema di prenotazione tavoli interattivo e un design moderno.</p>
+                        <div class="project-card__tags">
+                            <span>React</span>
+                            <span>UI/UX Design</span>
+                            <span>Front-end</span>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="https://little-lemons.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Demo
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M12.232 4.232a.75.75 0 011.06 1.06l-7 7a.75.75 0 01-1.06-1.06l7-7z" /><path d="M13.5 3a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V5.56l-3.22 3.22a.75.75 0 11-1.06-1.06L11.94 4.5H9.75a.75.75 0 010-1.5h3.75z" /></svg>
+                            </a>
+                            <a href="https://github.com/France02" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M12.232 4.232a.75.75 0 011.06 1.06l-7 7a.75.75 0 01-1.06-1.06l7-7z" /><path d="M13.5 3a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V5.56l-3.22 3.22a.75.75 0 11-1.06-1.06L11.94 4.5H9.75a.75.75 0 010-1.5h3.75z" /></svg>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-7">
-                        <h1 class="section-title">
-                            <i class="fa-regular fa-user"></i> About Me.
-                        </h1>
-                        <p class="role">FRONT-END DEVELOPER</p>
-                        <div class="content">
-                            <p class="intro">
-                                <i class="fa-solid fa-circle-user"></i> Ciao! Mi chiamo <span class="name">Francesco Golino</span>, sono un appassionato di sviluppo web front-end e sto costruendo la mia carriera per diventare un esperto in questo campo. Con una solida base in HTML, CSS, JavaScript e React, mi impegno ogni giorno per migliorare le mie competenze e trasformare idee creative in esperienze digitali interattive.
-                            </p>
-                            <p class="location">
-                                <i class="fas fa-map-marker-alt"></i> Sono di Caserta, ma sono disponibile anche per opportunità remote o trasferimenti a Roma. Amo collaborare con team motivati per creare progetti innovativi e orientati all'utente.
-                            </p>
-                            <p class="projects">
-                                <i class="fas fa-laptop-code"></i> Il mio obiettivo è unire design accattivante e funzionalità avanzata per realizzare siti e applicazioni web che abbiano un impatto positivo. Nel tempo libero, mi piace allenarmi in palestra e migliorare il mio inglese, oltre a esplorare nuove tecnologie per rimanere aggiornato sulle ultime tendenze del settore.
-                            </p>
-                            <p class="contact">
-                                <i class="fas fa-envelope"></i> Se vuoi discutere di progetti o collaborazioni, sentiti libero di contattarmi nella sezione "Contatti" o tramite <a href="https://www.linkedin.com/in/francesco-golino/" class="linkedin-link">
-                                    <i class="fab fa-linkedin"></i> LinkedIn!
-                                </a>
-                            </p>
+                </div>
+
+                <!-- Progetto 2 -->
+                <div class="project-card">
+                     <div class="project-card__image-container">
+                        <img src="/Assets/Img/pexels-mart-production-7718755.jpg" alt="Screenshot del progetto To-Do App" class="project-card__image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/18181B/3f3f46?text=Immagine+non+trovata';">
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Task Manager App</h3>
+                        <p class="project-card__description">Una To-Do list application creata con React per la gestione delle attività quotidiane, con un'interfaccia pulita e funzionale.</p>
+                        <div class="project-card__tags">
+                            <span>React</span>
+                            <span>Local Storage</span>
+                            <span>CSS</span>
                         </div>
-                        <div class="skills mt-4">
-                            <h3>My Skills</h3>
-                            <div class="skills-list">
-                                <span class="badge skill-badge">HTML</span>
-                                <span class="badge skill-badge">CSS</span>
-                                <span class="badge skill-badge">JavaScript</span>
-                                <span class="badge skill-badge">React</span>
-                                <span class="badge skill-badge">Git</span>
-                                <span class="badge skill-badge">Responsive Design</span>
-                                <span class="badge skill-badge">Bootstrap</span>
-                                <span class="badge skill-badge">Figma</span>
-                            </div>
+                        <div class="project-card__links">
+                            <a href="https://todolist-fr.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Demo
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M12.232 4.232a.75.75 0 011.06 1.06l-7 7a.75.75 0 01-1.06-1.06l7-7z" /><path d="M13.5 3a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V5.56l-3.22 3.22a.75.75 0 11-1.06-1.06L11.94 4.5H9.75a.75.75 0 010-1.5h3.75z" /></svg>
+                            </a>
+                             <a href="https://github.com/France02" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M12.232 4.232a.75.75 0 011.06 1.06l-7 7a.75.75 0 01-1.06-1.06l7-7z" /><path d="M13.5 3a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V5.56l-3.22 3.22a.75.75 0 11-1.06-1.06L11.94 4.5H9.75a.75.75 0 010-1.5h3.75z" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progetto 3 (Coming Soon) -->
+                <div class="project-card project-card--soon">
+                     <div class="project-card__image-container">
+                        <img src="https://placehold.co/600x400/18181B/3f3f46?text=Coming+Soon" alt="Progetto in arrivo" class="project-card__image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/18181B/3f3f46?text=Immagine+non+trovata';">
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Applicazione E-commerce</h3>
+                         <p class="project-card__description">Un'applicazione e-commerce full-stack in fase di sviluppo, che integra un front-end in React con un back-end basato su Spring Boot.</p>
+                        <div class="project-card__tags">
+                            <span>React</span>
+                            <span>Spring Boot</span>
+                            <span>Full-Stack</span>
+                        </div>
+                        <div class="project-card__links">
+                            <span class="project-card__link disabled">Coming Soon</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="my_work" id="works">
-            <div class="container">
-                <div class="section-header">
-                    <h1>My Works</h1>
-                    <p>Qui puoi vedere alcune idee, esercizi e progetti su cui sto lavorando per migliorare le mie competenze front-end.</p>
+
+        <!-- Sezione Contatti -->
+        <section id="contact" class="contact container">
+             <div class="section-title">
+                <h2>Contattami</h2>
+                <div class="section-title__line"></div>
+            </div>
+            <div class="contact__content">
+                <div class="contact__info">
+                    <h3>Parliamo del tuo prossimo progetto.</h3>
+                    <p>
+                        Sono sempre aperto a nuove sfide e collaborazioni. Se hai un'idea in mente o cerchi un developer per il tuo team, non esitare a contattarmi. Puoi scrivermi un'email o trovarmi su LinkedIn.
+                    </p>
+                    <a href="mailto:francescogolino02@gmail.com" class="contact__email">francescogolino02@gmail.com</a>
                 </div>
-                <div class="row g-4 justify-content-center">
-                    <!-- Primo Progetto -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="./Assets/Img/Screenshot 2025-02-19 152938.png" alt="Progetto Little Lemon" class="img-fluid">
-                            </div>
-                            <div class="project-info">
-                                <h3>Little Lemon - Sito Web con Modulo Prenotazioni in React</h3>
-                                <p>Un sito React per un ristorante con modulo di prenotazioni, progettato per essere aggiornato con nuove funzionalità.</p>
-                                <a href="https://little-lemons.netlify.app/" target="_blank" class="project-btn">Visita il Progetto</a>
-                            </div>
-                        </div>
+                <form id="contact-form" class="contact__form">
+                    <div class="form-group">
+                        <input type="text" id="user_name" name="user_name" required>
+                        <label for="user_name">Nome</label>
                     </div>
-        
-                    <!-- Secondo Progetto -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="./Assets/Img/Screenshot 2025-02-07 180212.png" alt="Progetto Pizzeria" class="img-fluid">
-                            </div>
-                            <div class="project-info">
-                                <h3>Landing Page Responsive</h3>
-                                <p>Una landing page progettata per esercitarmi con il responsive design e Flexbox.</p>
-                                <a href="https://pizzariabelnapoli.netlify.app/" target="_blank" class="project-btn">Visita il Progetto</a>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <input type="email" id="user_email" name="user_email" required>
+                        <label for="user_email">Email</label>
                     </div>
-        
-                    <!-- Terzo Progetto -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="./Assets/Img/pexels-mart-production-7718755.jpg" alt="Progetto App To-Do" class="img-fluid">
-                            </div>
-                            <div class="project-info">
-                                <h3>App To-Do</h3>
-                                <p>Un'app per la gestione delle attività, realizzata in React. Progetto in fase iniziale.</p>
-                                <a href="https://todolist-fr.netlify.app/" target="_blank" class="project-btn">Visita il Progetto</a>
-                            </div>
-                        </div>
+                    <div class="form-group form-group--full">
+                        <textarea id="user_message" name="user_message" rows="5" required></textarea>
+                        <label for="user_message">Messaggio</label>
                     </div>
-        
-                </div>
+                    <button type="submit" class="btn btn--primary btn--full">Invia Messaggio</button>
+                    <div id="message-response" class="feedback-message"></div>
+                </form>
             </div>
         </section>
-        <section class="contact" id="contact">
-            <div class="container">
-                <h1 class="contact_title">CONTACT ME</h1>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10">
-                        <form id="contact-form" class="contact_form">
-                            <div class="input-group">
-                                <div class="input-field">
-                                    <input type="text" name="user_name" placeholder="Nome" id="name" required class="contact_input">
-                                </div>
-                                <div class="input-field">
-                                    <input type="email" name="user_email" placeholder="Email" id="email" required class="contact_input">
-                                </div>
-                            </div>
-        
-                            <div class="input-group">
-                                <div class="input-field">
-                                    <input type="tel" name="user_phone" placeholder="Telefono (opzionale)" id="phone" class="contact_input">
-                                </div>
-                                <div class="input-field">
-                                    <input type="text" name="user_subject" placeholder="Oggetto" id="subject" required class="contact_input">
-                                </div>
-                            </div>
-        
-                            <div class="textarea-field">
-                                <textarea name="user_message" placeholder="Messaggio" id="message" required class="contact_message"></textarea>
-                            </div>
-        
-                            <button type="submit" class="button_contact">Invia Messaggio</button>
-                            <div id="message-response" class="feedback-message"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
     </main>
-    
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <a href="#home">
-                        <img src="/Assets/Img/Black White Minimalist Initials Monogram Jewelry Logo.png" alt="Portfolio Francesco Golino" class="logo">
-                    </a>
+        <div class="container footer__container">
+            <div class="footer__top">
+                <p>Realizzato con passione da Francesco Golino</p>
+                <div class="footer__socials">
+                     <a href="https://github.com/France02" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                     </a>
+                     <a href="https://www.linkedin.com/in/francesco-golino/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                     </a>
                 </div>
-                <nav class="footer-nav">
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Me</a></li>
-                        <li><a href="#works">My Works</a></li>
-                        <li><a href="#contact">Contact Me</a></li>
-                    </ul>
-                </nav>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-social">
-                    <a href="https://github.com/France02" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/francesco-golino/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                </div>
-                <p class="copyright">&copy; 2025 Francesco Golino. All Rights Reserved.</p>
+            <div class="footer__bottom">
+                <p>&copy; <span id="current-year"></span> Francesco Golino. Tutti i diritti riservati.</p>
+                <a href="#hero" class="footer__back-to-top" aria-label="Torna in cima">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.05021 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path></svg>
+                </a>
             </div>
         </div>
     </footer>
-    
-    
-    <script src="./Assets/Js/scrollreveal.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Script -->
     <script src="/Assets/Js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+
 </body>
 </html>

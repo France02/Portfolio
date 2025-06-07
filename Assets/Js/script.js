@@ -1,164 +1,171 @@
 document.addEventListener('DOMContentLoaded', () => {
-    typeTitle(); // Avvia l'animazione al caricamento
-});
 
-// Funzione Typewriter
-const titles = ["Frontend Developer", "UI/UX Designer", "Creative Problem Solver"];
-let currentTitleIndex = 0;
-const titleElement = document.querySelector('.title');
-let isTyping = true;
+    /* ============================== */
+    /* Theme Switcher        */
+    /* ============================== */
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
 
-function typeTitle() {
-    const currentTitle = titles[currentTitleIndex];
-    let i = 0;
+    const switchTheme = () => {
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
 
-    function type() {
-        if (i < currentTitle.length) {
-            titleElement.textContent += currentTitle.charAt(i);
-            i++;
-            setTimeout(type, Math.random() * 150 + 50);
+    if (themeToggle) {
+        themeToggle.addEventListener('click', switchTheme);
+    }
+
+
+    /* ============================== */
+    /* Header Scroll          */
+    /* ============================== */
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
         } else {
-            isTyping = false;
-            setTimeout(erase, 2000);
+            header.classList.remove('scrolled');
+        }
+    });
+
+
+    /* ============================== */
+    /* Mobile Navigation      */
+    /* ============================== */
+    const navToggle = document.querySelector('.navbar__toggle');
+    const navMenu = document.querySelector('.navbar__menu');
+    const navLinks = document.querySelectorAll('.navbar__link');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    }
+
+
+    /* ============================== */
+    /* Typewriter Effect         */
+    /* ============================== */
+    const subtitleElement = document.querySelector('.hero__subtitle');
+    if (subtitleElement) {
+        // This is a simplified version for demonstration.
+        // A more complex typewriter could be implemented here.
+        // For now, the blinking cursor gives a dynamic feel.
+    }
+
+
+    /* ============================== */
+    /* Contact Form (EmailJS)    */
+    /* ============================== */
+    const contactForm = document.getElementById('contact-form');
+    const messageResponse = document.getElementById('message-response');
+    
+    // Inizializza EmailJS con la tua Public Key
+    (function(){
+       emailjs.init("rlDCAvzJroPCeMvv1"); // Sostituisci con la tua Public Key
+    })();
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Invio in corso...';
+
+            // Parametri del servizio e template
+            const serviceID = 'service_c346b4k'; // Sostituisci con il tuo Service ID
+            const templateID = 'template_gewcvtg'; // Sostituisci con il tuo Template ID
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    showMessage('success', 'Messaggio inviato con successo! Ti risponderò al più presto.');
+                    contactForm.reset();
+                    // Resetta lo stato degli input/label
+                    contactForm.querySelectorAll('input, textarea').forEach(input => {
+                      // Non è necessario fare nulla, lo stile :valid si occuperà di tutto
+                    });
+                }, (err) => {
+                    showMessage('error', `Si è verificato un errore. Riprova più tardi. Dettagli: ${JSON.stringify(err)}`);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Invia Messaggio';
+                });
+        });
+    }
+
+    function showMessage(type, message) {
+        if (messageResponse) {
+            messageResponse.className = `feedback-message ${type}`;
+            messageResponse.textContent = message;
+            setTimeout(() => {
+                messageResponse.className = 'feedback-message';
+                messageResponse.textContent = '';
+            }, 6000);
         }
     }
 
-    function erase() {
-        if (titleElement.textContent.length > 0) {
-            titleElement.textContent = titleElement.textContent.slice(0, -1);
-            setTimeout(erase, 80);
-        } else {
-            currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-            isTyping = true;
-            typeTitle();
-        }
+
+    /* ============================== */
+    /* Update Footer Year       */
+    /* ============================== */
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
     }
 
-    if (!isTyping) type();
-}
 
-// GESTIONE FORM CONTATTO
-const contactForm = document.getElementById("contact-form");
-const contactMessage = document.getElementById("message-response"); // Corretto selettore
+    /* ============================== */
+    /* Intersection Observer for    */
+    /* Scroll Animations         */
+    /* ============================== */
+    const animatedElements = document.querySelectorAll('.about, .work, .contact, .project-card');
 
-const sendEmail = (e) => {
-    e.preventDefault();
-    contactMessage.textContent = "";
-    contactForm.querySelector('button').disabled = true;
-
-    emailjs.sendForm(
-        "service_c346b4k", // ID del servizio EmailJS
-        "template_gewcvtg", // ID del template
-        contactForm, // Form HTML
-        "rlDCAvzJroPCeMvv1" // Tuo ID utente EmailJS
-    )
-    .then(() => {
-        showMessage('success', 'Messaggio inviato con successo ✅');
-        contactForm.reset();
-        contactForm.querySelector('button').disabled = false;
-    })
-    .catch((error) => {
-        showMessage('error', `Errore: ${error.text}`);
-        contactForm.querySelector('button').disabled = false;
-    });
-};
-
-contactForm.addEventListener("submit", sendEmail);
-
-// ANIMAZIONI SCORRIMENTO
-const defaultConfig = {
-    origin: "top",
-    distance: "60px",
-    duration: 2500,
-    delay: 300,
-    reset: true
-};
-
-const sr = ScrollReveal(defaultConfig);
-
-sr.reveal("#home", defaultConfig);
-sr.reveal(".contact_form", defaultConfig);
-sr.reveal(".about_me", { origin: "left", distance: "80px" });
-sr.reveal(".project-card", { interval: 100, origin: "bottom" });
-
-// SCROLL SMOOTH
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'
-        });
-    });
-});
-
-// FUNZIONE PER SCORRERE ALLE SEZIONI
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'nearest'
-        });
-    }
-}
-
-// ANIMAZIONI INTERSEZIONE
-function setupIntersectionObserver(target, options = defaultConfig) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target); // Arresta l'osservazione
+                entry.target.style.animation = `fadeInUp 1s ${entry.target.dataset.delay || '0s'} forwards ease-out`;
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.3 });
-
-    observer.observe(target);
-}
-
-// Animazioni per About Me e Skills
-document.addEventListener('DOMContentLoaded', () => {
-    // Section About Me
-    const aboutSection = document.querySelector('.about_me');
-    aboutSection.style.opacity = '0';
-    aboutSection.style.transform = 'translateY(30px)';
-    setupIntersectionObserver(aboutSection, {
-        origin: 'bottom',
-        distance: '50px'
+    }, {
+        threshold: 0.1
     });
 
-    // Section Skills
-    const skills = document.querySelector('.skills');
-    skills.style.opacity = '0';
-    skills.style.transform = 'translateX(-50px)';
-    setupIntersectionObserver(skills, {
-        origin: 'right',
-        distance: '50px'
+    animatedElements.forEach(el => {
+        el.style.opacity = '0'; // Hide element initially
+        observer.observe(el);
     });
 
-    // Animazione avvio sezione Home
-    const homeSection = document.querySelector('#home');
-    homeSection.style.opacity = '0';
-    homeSection.style.transform = 'translateY(100px)';
-    
-    setTimeout(() => {
-        homeSection.style.opacity = '1';
-        homeSection.style.transform = 'translateY(0)';
-    }, 500);
+    // Add keyframes to a style tag in the head
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+    document.head.appendChild(styleSheet);
+
 });
-
-// Funzione messaggi form
-function showMessage(type, text) {
-    const messageDiv = document.getElementById('message-response');
-    messageDiv.textContent = text;
-    messageDiv.className = `feedback-message ${type}`;
-    setTimeout(() => {
-        messageDiv.className = 'feedback-message';
-        messageDiv.textContent = '';
-    }, 5000);
-}
